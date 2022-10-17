@@ -2,7 +2,6 @@
 # define EASYFIND_HPP
 #include <algorithm>
 #include <vector>
-#include <array>
 #include <list>
 #include <deque>
 

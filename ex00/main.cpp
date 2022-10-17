@@ -26,24 +26,6 @@ int main()
 		std::cerr  << e.what() << '\n';
 	}
 	std::cout << "==========END Int Vector=========" << std::endl;
-	// std::array <int, 10>::iterator it = b.begin();
-	std::array <int, 10>b = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-	std::cout << "==========Int Array=========" << std::endl;
-	for(std::array <int, 10>::iterator it = b.begin(); it < b.end(); it++)
-	{
-		std::cout <<"Int Array:" << *it << std::endl;
-	}
-		std::cout << "==========Test Commenced!" << std::endl;
-	try
-	{
-		std::array<int, 10>::iterator it = easyFind(b, 5);
-		std::cout << *it << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr  << e.what() << '\n';
-	}
-	std::cout << "==========END Int Array=========" << std::endl;
 	std::cout << "==========Int Deque=========" << std::endl;
 	std::deque <int> c;
 	c.push_back(-50);
