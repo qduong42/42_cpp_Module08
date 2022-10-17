@@ -38,7 +38,6 @@ int main()
 	{
 		std::array<int, 10>::iterator it = easyFind(b, 5);
 		std::cout << *it << std::endl;
-		// std::cout << "Found element at address: " << it.base() << " index: " << static_cast<int>(it.base() - b.begin().base()) << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -54,6 +53,16 @@ int main()
 	for(std::deque <int>::iterator it = c.begin(); it < c.end(); it++)
 	{
 		std::cout << "int deque" << *it << std::endl;
+	}
+			std::cout << "==========Test Commenced!" << std::endl;
+	try
+	{
+		std::deque<int>::iterator it = easyFind(c, -50);
+		std::cout << *it << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr  << e.what() << '\n';
 	}
 	std::cout << "==========END Int Deque=========" << std::endl;
 	return 0;

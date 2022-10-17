@@ -7,11 +7,11 @@
 #include <deque>
 
 template <typename T>
-typename T::iterator easyFind(T& t, int a)
+typename T::iterator easyfind(T& container, int number)
 {
-	typename T::iterator it = std::find(t.begin(), t.end(), a);
+	typename T::iterator it = std::find(container.begin(), container.end(), number);
 	if (it == t.end())
-		throw std::invalid_argument("easyFind::Container does not contain the target element!");
+		throw(std::invalid_argument("easyFind::Container does not contain the target element!"));
 	return (it);
 }
 
