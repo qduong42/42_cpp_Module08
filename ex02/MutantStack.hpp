@@ -21,10 +21,10 @@ class MutantStack: public std::stack<T>
 
 		MutantStack& operator=(MutantStack const& obj){this->c = obj.c;};
 		//define new type Iterator to be std::stack<T>::container_type::iterator
-		typedef typename std::stack<T>::container_type::iterator Iterator;
+		typedef typename std::stack<T>::container_type::iterator iterator;
 
-		Iterator begin() { return this->c.begin(); };
-   		Iterator end()   { return this->c.end(); };
+		iterator begin()	{return this->c.begin();};
+   		iterator end()		{return this->c.end();};
 	private:
 
 };
