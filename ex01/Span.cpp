@@ -77,13 +77,33 @@ int Span::shortestSpan()
 	std::sort((this->_array)->begin(), this->_array->end());
 	if (this->_array->size() <= 1)
 		throw(std::invalid_argument("Throw: Array only has 1 or no numbers"));
-	int shortest = INT_MAX;
-	for(unsigned long i = 0; i < this->_array->size() - 1; i++)
-	{
-		if (this->getArray()->at(i + 1) - this->getArray()->at(i) < shortest)
-			shortest = this->getArray()->at(i + 1) - this->getArray()->at(i);
-	}
-	return (shortest);
+	std::vector<int> a(*this->_array);
+	// for (std::vector<int>::iterator it = a.begin(); it < a.end(); it++)
+	// {
+	// 	std::cout << "v org:" << *it << std::endl;
+	// }
+	std::adjacent_difference(a.begin(), a.end(), a.begin());
+	// for (std::vector<int>::iterator it = a.begin(); it < a.end(); it++)
+	// {
+	// 	std::cout << "v:" << *it << std::endl;
+	// }
+	int (*fabs)(int) = &std::abs;
+	std::transform(a.begin(), a.end(), a.begin(), fabs);
+	// for (std::vector<int>::iterator it = a.begin(); it < a.end(); it++)
+	// {
+	// 	std::cout << "v2:" << *it << std::endl;
+	// }
+	return(*std::min_element(++std::begin(a), std::end(a)));
+	// std::vector<int>::iterator it;
+	// it = std::min_element(a.begin(), a.end());
+	// shortest = *it;
+	// int shortest = INT_MAX;
+	// for(unsigned long i = 0; i < this->_array->size() - 1; i++)
+	// {
+	// 	if (this->getArray()->at(i + 1) - this->getArray()->at(i) < shortest)
+	// 		shortest = this->getArray()->at(i + 1) - this->getArray()->at(i);
+	// }
+	// return (shortest);
 }
 
 int Span::longestSpan()

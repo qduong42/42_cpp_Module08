@@ -6,7 +6,7 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 17:00:49 by qduong            #+#    #+#             */
-/*   Updated: 2022/10/19 13:12:23 by qduong           ###   ########.fr       */
+/*   Updated: 2022/10/19 16:32:24 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 int main()
 {
 	Span* sp = new Span(5);
-	sp->addNumber(-100);
-	sp->addNumber(0);
+	sp->addNumber(10);
+	sp->addNumber(-5);
+	sp->addNumber(40);
 	sp->addNumber(50);
 	sp->addNumber(200);
-	sp->addNumber(300);
 	try
 	{
 		sp->addNumber(6);
