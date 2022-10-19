@@ -1,4 +1,5 @@
 #include "Span.hpp"
+#include <cstdlib>
 
 //	CONSTRUCTORS | DESTRUCTOR
 
@@ -52,7 +53,7 @@ void Span::addNumber(int const& x)
 	else
 	{
 		std::cout <<  "Vector with size " <<  this->_size << " has " << this->_array->size() << " elements\n";
-		throw(std::invalid_argument("Vector full! Unable to add!"));
+		throw(std::invalid_argument("Throw: Vector full! Unable to add!"));
 	}
 }
 
@@ -69,4 +70,29 @@ size_t const& Span::getSize()const
 std::vector<int>* Span::getArray()const
 {
 	return (this->_array);
+}
+
+int Span::shortestSpan()
+{
+	std::sort((this->_array)->begin(), this->_array->end());
+	if (this->_array->size() <= 1)
+		throw(std::invalid_argument("Throw: Array only has 1 or no numbers"));
+	return (this->_array->at(1) - this->_array->at(0));
+}
+
+int Span::longestSpan()
+{
+	std::sort((this->_array)->begin(), this->_array->end());
+	if (this->_array->size() <= 1)
+		throw(std::invalid_argument("Throw: Array only has 1 or no numbers"));
+	return (this->_array->at(1) - this->_array->at(0));
+}
+
+void Span::fillArr(int n)
+{
+	std::srand(time(NULL));
+	for (int i = 0; i < n; i++)
+	{
+		this->_array->push_back(rand());
+	}
 }

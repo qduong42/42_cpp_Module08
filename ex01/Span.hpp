@@ -14,13 +14,15 @@ class Span
 		Span& operator=(Span const& obj);
 		~Span();
 		void addNumber(int const& x);
+		void fillArr(int n);
 		size_t const& getSize()const;
 		// int const& getCount()const;
 		std::vector<int>* getArray()const;
+		int shortestSpan();
+		int longestSpan();
 
 	private:
 
-	// int _count;
 	size_t _size;
 	std::vector<int>* _array;
 };

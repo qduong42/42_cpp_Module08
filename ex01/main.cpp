@@ -6,7 +6,7 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 17:00:49 by qduong            #+#    #+#             */
-/*   Updated: 2022/10/18 19:04:59 by qduong           ###   ########.fr       */
+/*   Updated: 2022/10/19 12:40:31 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 int main()
 {
 	Span* sp = new Span(5);
-	sp->addNumber(1);
-	sp->addNumber(2);
-	sp->addNumber(3);
-	sp->addNumber(4);
-	sp->addNumber(5);
+	sp->addNumber(0);
+	sp->addNumber(70);
+	sp->addNumber(400);
+	sp->addNumber(200);
+	sp->addNumber(300);
 	try
 	{
 		sp->addNumber(6);
@@ -73,7 +73,48 @@ int main()
 	{
 		std::cout << "vector sp3:" << *it << std::endl;
 	}
-	// std::cout << sp.shortestSpan() << std::endl;
-	// std::cout << sp.longestSpan() << std::endl;
+	std::cout << "===============Shortest Span test 1:===============\n";
+	std::cout << "Shortest span is: " << sp2.shortestSpan() << std::endl;
+	std::cout << "===============Shortest Span invalid arg test 1:===============\n";
+	Span sp5(1);
+	sp5.addNumber(5);
+	try
+	{
+		std::cout << "Shortest span is: " << sp5.shortestSpan() << std::endl;
+	}
+	catch(std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << "===============Shortest Span invalid arg test 2:===============\n";
+	Span sp6;
+	try
+	{
+		std::cout << "Shortest span is: " << sp5.shortestSpan() << std::endl;
+	}
+	catch(std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << "===============Longest Span test 1:===============\n";
+	std::cout << sp2.longestSpan() << std::endl;
+	std::cout << "===============Longest Span invalid arg test 1:===============\n";
+	try
+	{
+		std::cout << "Longest span is: " << sp5.longestSpan() << std::endl;
+	}
+	catch(std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << "===============Fill Span test 1:===============\n";
+	Span sp7(10000);
+	std::cout << "sp7 count: " << sp7.getArray()->size() << "\n";
+	sp7.fillArr(10000);
+	std::cout << "sp7 count: " << sp7.getArray()->size() << "\n";
+	for (std::vector<int>::iterator it = sp7.getArray()->begin(); it < sp7.getArray()->end(); it++)
+	{
+		std::cout << "original sp7:" << *it << std::endl;
+	}
 	return 0;
 }
