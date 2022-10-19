@@ -6,7 +6,7 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 17:00:49 by qduong            #+#    #+#             */
-/*   Updated: 2022/10/19 12:40:31 by qduong           ###   ########.fr       */
+/*   Updated: 2022/10/19 13:12:23 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 int main()
 {
 	Span* sp = new Span(5);
+	sp->addNumber(-100);
 	sp->addNumber(0);
-	sp->addNumber(70);
-	sp->addNumber(400);
+	sp->addNumber(50);
 	sp->addNumber(200);
 	sp->addNumber(300);
 	try
@@ -107,14 +107,31 @@ int main()
 	{
 		std::cout << e.what() << std::endl;
 	}
-	std::cout << "===============Fill Span test 1:===============\n";
-	Span sp7(10000);
-	std::cout << "sp7 count: " << sp7.getArray()->size() << "\n";
-	sp7.fillArr(10000);
-	std::cout << "sp7 count: " << sp7.getArray()->size() << "\n";
-	for (std::vector<int>::iterator it = sp7.getArray()->begin(); it < sp7.getArray()->end(); it++)
-	{
-		std::cout << "original sp7:" << *it << std::endl;
-	}
+	// std::cout << "===============Fill Span test 1:===============\n";
+	// Span sp7(10000);
+	// std::cout << "sp7 count: " << sp7.getArray()->size() << "\n";
+	// sp7.fillArr(10000);
+	// std::cout << "sp7 count: " << sp7.getArray()->size() << "\n";
+	// for (std::vector<int>::iterator it = sp7.getArray()->begin(); it < sp7.getArray()->end(); it++)
+	// {
+	// 	std::cout << "original sp7:" << *it << std::endl;
+	// }
 	return 0;
 }
+
+// int main()
+// {
+// 	Span sp = Span(5);
+// 	sp.addNumber(6);
+// 	sp.addNumber(3);
+// 	sp.addNumber(17);
+// 	sp.addNumber(9);
+// 	sp.addNumber(11);
+// 	std::cout << sp.shortestSpan() << std::endl;
+// 	for (std::vector<int>::iterator it = sp.getArray()->begin(); it < sp.getArray()->end(); it++)
+// 	{
+// 		std::cout << "original sp:" << *it << std::endl;
+// 	}
+// 	std::cout << sp.longestSpan() << std::endl;
+// 	return 0;
+// }

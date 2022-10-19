@@ -77,7 +77,13 @@ int Span::shortestSpan()
 	std::sort((this->_array)->begin(), this->_array->end());
 	if (this->_array->size() <= 1)
 		throw(std::invalid_argument("Throw: Array only has 1 or no numbers"));
-	return (this->_array->at(1) - this->_array->at(0));
+	int shortest = INT_MAX;
+	for(unsigned long i = 0; i < this->_array->size() - 1; i++)
+	{
+		if (this->getArray()->at(i + 1) - this->getArray()->at(i) < shortest)
+			shortest = this->getArray()->at(i + 1) - this->getArray()->at(i);
+	}
+	return (shortest);
 }
 
 int Span::longestSpan()
@@ -85,9 +91,15 @@ int Span::longestSpan()
 	std::sort((this->_array)->begin(), this->_array->end());
 	if (this->_array->size() <= 1)
 		throw(std::invalid_argument("Throw: Array only has 1 or no numbers"));
-	return (this->_array->at(1) - this->_array->at(0));
+	return (this->_array->at(this->_array->size() - 1) - this->_array->at(0));
 }
 
+/**
+ * add n random numbers
+ * can also be done using insert fkt
+ * iterator insert( const_iterator pos, InputIt first, InputIt last );
+ * @param n 
+ */
 void Span::fillArr(int n)
 {
 	std::srand(time(NULL));
