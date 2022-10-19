@@ -3,19 +3,19 @@
 
 //	CONSTRUCTORS | DESTRUCTOR
 
-Span::Span():/* _count(0), */ _size(0), _array(NULL)
+Span::Span():_size(0), _array(NULL)
 {
 	std::cout << "default Constructor called!\n";
 	this->_array = new std::vector<int>;
 }
 
-Span::Span(unsigned int const& N):/* _count(0), */ _size(N), _array(NULL)
+Span::Span(unsigned int const& N):_size(N), _array(NULL)
 {
 	std::cout << "N sized Constructor called!\n";
 	this->_array = new std::vector<int>;
 }
 
-Span::Span(Span const& obj): /* _count(obj.getCount()) ,*/ _size(obj.getSize()), _array(NULL)
+Span::Span(Span const& obj):_size(obj.getSize()), _array(NULL)
 {
 	std::cout << "Copy constructor called!" << std::endl;
 	*this = obj;
@@ -29,7 +29,6 @@ Span& Span::operator=(Span const& obj)
 		if (this->_array)
 			delete (this->_array);
 		this->_array = new std::vector<int>(*(obj.getArray()));
-		// this->_count = obj.getCount();
 		this->_size = obj.getSize();
 	}
 	return (*this);
@@ -48,7 +47,6 @@ void Span::addNumber(int const& x)
 	if (this->getArray()->size() < this->getSize())
 	{
 		this->_array->push_back(x);
-		// this->_count++;
 	}
 	else
 	{
@@ -61,11 +59,6 @@ size_t const& Span::getSize()const
 {
 	return (this->_size);
 }
-
-// int const& Span::getCount()const
-// {
-// 	return (this->_count);
-// }
 
 std::vector<int>* Span::getArray()const
 {
@@ -81,7 +74,7 @@ int Span::shortestSpan()
 	std::adjacent_difference(a.begin(), a.end(), a.begin());
 	int (*fabs)(int) = &std::abs;
 	std::transform(a.begin(), a.end(), a.begin(), fabs);
-	return(*std::min_element(++std::begin(a), std::end(a)));
+	return(*std::min_element(++a.begin(), a.end()));
 	// std::vector<int>::iterator it;
 	// it = std::min_element(a.begin(), a.end());
 	// shortest = *it;
