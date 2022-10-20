@@ -6,7 +6,7 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 17:00:49 by qduong            #+#    #+#             */
-/*   Updated: 2022/10/19 16:32:24 by qduong           ###   ########.fr       */
+/*   Updated: 2022/10/20 09:03:34 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 int main()
 {
 	Span* sp = new Span(5);
-	sp->addNumber(10);
-	sp->addNumber(-5);
-	sp->addNumber(40);
+	sp->addNumber(-10);
+	sp->addNumber(5);
+	sp->addNumber(-40);
 	sp->addNumber(50);
-	sp->addNumber(200);
+	sp->addNumber(-200);
 	try
 	{
 		sp->addNumber(6);
@@ -30,8 +30,6 @@ int main()
 		std::cout << e.what() << "\n";
 	}
 	Span sp2(2);
-	// std::cout << sp2.getSize() << "\n";
-	// std::cout << sp2.getCount() << "\n";
 	try{
 		sp2.addNumber(5);
 		sp2.addNumber(10);
@@ -41,8 +39,6 @@ int main()
 	{
 		std::cout << e.what() << std::endl;
 	}
-	// std::cout << sp2.getSize() << "\n";
-	// std::cout << sp2.getCount() << "\n";
 	std::cout << "===============DEEP COPY tests===============\n";
 	for (std::vector<int>::iterator it = sp->getArray()->begin(); it < sp->getArray()->end(); it++)
 	{
@@ -54,8 +50,6 @@ int main()
 	}
 	sp2 = *sp;
 	delete sp;
-	// std::cout << sp2.getSize() << "\n";
-	// std::cout << sp2.getCount() << "\n";
 	for (std::vector<int>::iterator it = sp2.getArray()->begin(); it < sp2.getArray()->end(); it++)
 	{
 		std::cout << "new vector sp2:" << *it << std::endl;
