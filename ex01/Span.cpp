@@ -72,8 +72,8 @@ int Span::shortestSpan()
 		throw(std::invalid_argument("Throw: Array only has 1 or no numbers"));
 	std::vector<int> a(*this->_array);
 	std::adjacent_difference(a.begin(), a.end(), a.begin());
-	int (*fabs)(int) = &std::abs;
-	std::transform(a.begin(), a.end(), a.begin(), fabs);
+	// int (*fabs)(int) = &std::abs;
+	// std::transform(a.begin(), a.end(), a.begin(), fabs);
 	return(*std::min_element(++a.begin(), a.end()));
 	// std::vector<int>::iterator it;
 	// it = std::min_element(a.begin(), a.end());
