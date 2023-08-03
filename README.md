@@ -2,6 +2,8 @@
 
 ## About
 
+Excercises to acquaint us to containers. We use several containers to create simple programs, implement container templates.
+
 ## Installation & Usage
 
 ### Requirements
@@ -20,7 +22,7 @@ Those versions are the ones used during development.
 2. `cd` into the exercise directories and run `make`
   for (int i = 00; i <= 02; i++)
 {
-        cd 42_cpp_Module00/exi
+        cd 42_cpp_Module08/exi
         make
 }
 
